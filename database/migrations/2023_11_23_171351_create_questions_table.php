@@ -22,7 +22,7 @@ class CreateQuestionsTable extends Migration
             $table->string('answertow' , 256);
             $table->string('answerthree' , 256);
             $table->string('answerfour' , 256);
-            $table->string('finalanswer' , 256);
+            $table->unsignedInteger('finalanswer');
             
                           
             $table->unsignedBigInteger('sub_classesses_id')->nullable();

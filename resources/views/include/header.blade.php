@@ -28,6 +28,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="{{ Asset('AdminDesign/Asset/css/main.css')}}">
+   
 </head>
 
 <body class="rtl persianumber">

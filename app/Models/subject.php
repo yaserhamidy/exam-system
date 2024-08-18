@@ -10,4 +10,7 @@ class subject extends Model
     use HasFactory;
     protected $table = ("sub_classesses");
     protected $primaryKey = 'sub_classesses_id';
+
+
+    
 }

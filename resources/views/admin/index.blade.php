@@ -2,6 +2,16 @@
 @section('content')
 
 
+<style>
+	.read-more-btn {
+	  font-size: 14px;
+	  text-decoration: none;
+	}
+  
+	.read-more-btn i {
+	  font-size: 12px;
+	}
+  </style>
 <main class="bmd-layout-content">
 			<div class="container-fluid ">
 
@@ -35,46 +45,60 @@
 					<div class="col-xl-3 col-md-6 col-sm-6 p-2">
 						<div class="box-card mini animate__animated animate__flipInY   "><i
 								class="fab far fa-chart-bar b-first" aria-hidden="true"></i>
-							<span class="c-first">Bounce Rate</span>
-							<span>30%</span>
-							<p class="mt-3 mb-1 text-center"><i class="far fas fa-wallet mr-1 c-first"></i>Your main
-								list is
-								growing</p>
+							<span class="c-first"> کتگوریها</span>
+							<h3>{{ App\Models\Catagory::count() }}</h3>
+							<a href="show_catagory" class="read-more-btn text-primary d-inline-flex align-items-center">
+								<i class="fas fa-chevron-left ms-1 p-2"></i>
+								اطلاعات بیشتر
+							  </a>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6 col-sm-6 p-2">
 						<div class="box-card mini animate__animated animate__flipInY    "><i
 								class="fab far fa-clock b-second" aria-hidden="true"></i>
-							<span class="c-second">Visitors</span>
-							<span>27</span>
-							<p class="mt-3 mb-1 text-center"><i class="far fas fa-wifi mr-1 c-second"></i>Your main list
-								is
-								growing</p>
+							<span class="c-second"> امتحانات</span>
+							<h3>{{ App\Models\subject::count() }}</h3>
+							<a href="show_sub" class="read-more-btn text-primary d-inline-flex align-items-center">
+								<i class="fas fa-chevron-left ms-1 p-2"></i>
+								اطلاعات بیشتر
+							  </a>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6 col-sm-6 p-2">
 						<div class="box-card mini animate__animated animate__flipInY   "><i
 								class="fab far fa-comments b-third" aria-hidden="true"></i>
-							<span class="c-third">Messages</span>
-							<span>5</span>
-							<p class="mt-3 mb-1 text-center"><i class="fab fa-whatsapp mr-1 c-third"></i>Your main list
-								is
-								growing</p>
+							<span class="c-third"> سوالات</span>
+							<h3>{{ App\Models\question::count() }}</h3>
+							<a href="show_question" class="read-more-btn text-primary d-inline-flex align-items-center">
+								<i class="fas fa-chevron-left ms-1 p-2"></i>
+								اطلاعات بیشتر
+							  </a>
 						</div>
 					</div>
 					<div class="col-xl-3 col-md-6 col-sm-6 p-2">
 						<div class="box-card mini animate__animated animate__flipInY   "><i
 								class="fab far fa-gem b-forth" aria-hidden="true"></i>
-							<span class="c-forth">Mined</span>
-							<span>555,223</span>
-							<p class="mt-3 mb-1 text-center"><i class="fab fa-bluetooth mr-1 c-forth"></i>Your main list
-								is
-								growing</p>
+							<span class="c-forth">شاگردان</span>
+							<h3>{{ App\Models\User::count() }}</h3>
+							<a href="show_student" class="read-more-btn text-primary d-inline-flex align-items-center">
+								<i class="fas fa-chevron-left ms-1 p-2"></i>
+								اطلاعات بیشتر
+							  </a>
+						</div>
+					</div>
+					<div class="col-xl-3 col-md-6 col-sm-6 p-2">
+						<div class="box-card mini animate__animated animate__flipInY   "><i
+								class="fab far fa-gem b-forth" aria-hidden="true"></i>
+							<span class="c-forth">نتیجه ها</span>
+							<h3>{{ App\Models\result::count() }}</h3>
+							<a href="show_result" class="read-more-btn text-primary d-inline-flex align-items-center">
+								<i class="fas fa-chevron-left ms-1 p-2"></i>
+								اطلاعات بیشتر
+							  </a>
 						</div>
 					</div>
 				</div>
 
-			
 
 
 				

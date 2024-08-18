@@ -30,7 +30,7 @@
                         
                     <div class="col-md-6 mt-4">
                         <label for=""> جواب دوم  </label>
-                        <input type="text" name="answertow" value="{{$questions->answertow}}" class="form-control">
+                        <input type="text" name="answertwo" value="{{$questions->answertwo}}" class="form-control">
                   </div>
                     <div class="col-md-6 mt-4">
                         <label for=""> جواب سوم </label>
@@ -52,7 +52,8 @@
         <div class="col-md-12">
          <select name="sub_classesses_id" class="form-control" id="">
               @foreach($subject as $sub)
-            <option value="{{$sub->sub_classesses_id}}"> {{$sub->sub_name}} </option>
+            <option value="{{$sub->sub_classesses_id}}" @if($sub->sub_classesses_id == $questions->sub_classesses_id) selected   @endif
+                > {{$sub->sub_name}} </option>
                 @endforeach
          </select>
         </div>

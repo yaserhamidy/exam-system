@@ -28,24 +28,10 @@
 									@endif
 					
 								</div>
-								<div class="d-flex justify-content-between align-items-center">
-									<div>
-										@if(request()->has('query') && request()->get('query') != '')
-										<a href="{{ route('show_question') }}" class="btn btn-outline-secondary">
-											<i class="fas fa-arrow-left mr-2"></i> برگشت
-										</a>
-										@endif
-										<a href="add_question" class="btn btn-primary">اضافه کردن سوالات</a>
-									</div>
-									<form action="{{ route('show_question') }}" method="GET" class="d-flex align-items-center">
-										<div class="input-group">
-											<div class="input-group-append">
-												<button class="btn btn-primary" type="submit">جوستجو</button>
-											</div>
-											<input type="text" name="query" class="form-control" placeholder="جوستجو سوالات " value="{{ request()->get('query') }}">
-										</div>
-									</form>
-								</div>
+                              <div class="row">
+							  <a href="add_question" class="btn btn-primary">اضافه کردن سوال</a>
+
+							  </div>
 								<hr>
 								<div class="table-responsive">
 									
@@ -87,8 +73,8 @@
 											<td>{{$ques->name}}</td>
 											
 											<td>
-												<div class="row" style="gap:10px">
-													<a href="questionEdit/{{$ques->question_id}}" class='btn btn-primary'  style="margin: 0 10px;" >ویرایش</a>
+												<div class="row d-flex" style=" gap:10px">
+													<a href="questionEdit/{{$ques->question_id}}" class='btn btn-primary '  style="margin: 0 10px;" >ویرایش</a>
 													<a href="questionDelete/{{$ques->question_id}}" class='btn btn-danger' style="margin: 0 10px;" >حذف</a>
 													
 												</div>

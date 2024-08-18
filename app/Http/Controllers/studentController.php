@@ -7,10 +7,17 @@ use App\Models\User;
 
 class studentController extends Controller
 {
-    public function show(){  
-        $students=User::all();
-
-        return view('admin.student.show_student',compact('students'));
+    public function show(Request $request)
+    {
+        $query = $request->input('query');
+    
+        $students = User::when($query, function ($q) use ($query) {
+                        return $q->where('name', 'like', '%' . $query . '%')
+                                ->orWhere('email', 'like', '%' . $query . '%');
+                    })
+                    ->paginate(5);
+    
+        return view('admin.student.show_student', compact('students'));
     }
     public function add(){  
         return view('admin.student.add_student');
@@ -29,7 +36,7 @@ class studentController extends Controller
     
         $student->save();
         
-    return redirect()->route('show_student');
+    return redirect()->route('show_student')->with('status' , 'student Added Successfully!!');
        
     }
     public function studentDelete($id){
@@ -61,7 +68,7 @@ public function EditStudent(Request $request){
     $student->password = $password;
     $student->save();
       
-    return redirect()->route('show_student');
+    return redirect()->route('show_student')->with('status' , 'student Edited Successfully!!');
     
 }
 

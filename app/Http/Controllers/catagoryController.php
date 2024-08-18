@@ -7,11 +7,15 @@ use App\Models\catagory;
 
 class catagoryController extends Controller
 {
-    public function show(){  
-        $catagories=catagory::all();
+    public function show(Request $request)
+{
+    $query = $request->get('query');
+    $catagories = Catagory::when($query, function ($q) use ($query) {
+        $q->where('name', 'like', '%' . $query . '%');
+    })->paginate(5);
 
-        return view('admin.catagory.show_catagory',compact('catagories'));
-    }
+    return view('admin.catagory.show_catagory', compact('catagories'));
+}
     public function add(){  
         return view('admin.catagory.add_catagory');
     }
@@ -29,7 +33,7 @@ public function addCatagory(Request $request){
 
     $catagory->save();
     
-    return redirect()->route('show_catagory');
+    return redirect()->route('show_catagory')->with('status' , 'catagory Added Successfully!!');
    
 }
 
@@ -61,8 +65,11 @@ public function editCatagory(Request $request){
     
     // $catagories = catagory::all();
     // return view('admin.catagory.show_catagory', compact('catagories'));
-    return redirect()->route('show_catagory');
+    return redirect()->route('show_catagory')->with('status' , 'catagory Edited Successfully!!');
 
 }
+
+
+
 
 }

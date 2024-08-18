@@ -21,10 +21,7 @@
                         <input type="text" name="sub_name" value="{{$subject->sub_name}}" class="form-control">
                     </div>
 						
-                    <div class="col-md-12 mt-4">
-						<label for=""> فعال </label>
-                        <input type="text" name="status" value="{{$subject->status}}" class="form-control">
-                    </div>
+                    
                     <div class="row col-md-12 mt-4">
                         <div class="col-md-4">
                             <label for="">  زمان  </label>
@@ -46,7 +43,8 @@
     <div class="col-md-12">
     <select name="cat_id" class="form-control" id="">
           @foreach($catagory as $cat)
-        <option value="{{$cat->cat_id}}"> {{$cat->name}} </option>
+        <option value="{{$cat->cat_id}}"  @if($cat->cat_id == $subject->cat_id) selected   @endif
+            > {{$cat->name}} </option>
             @endforeach
      </select>
     </div>

@@ -10,6 +10,8 @@ use App\Http\Controllers\subController;
 use App\Http\Controllers\questionController;
 use App\Http\Controllers\resultController;
 use App\Http\Controllers\studentController;
+use App\Http\Controllers\SearchController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +23,12 @@ use App\Http\Controllers\studentController;
 |
 */
 
-Route::get('/', [homecontroller::class, 'show']);
+Route::get('/', [homecontroller::class, 'show'])->name('welcome');
+Route::get('exam_page', [homecontroller::class, 'exam_page'])->name('exam_page');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+
+// result routes
 Route::get('show_result', [resultController::class, 'show'])->name('show_result');
 
 
@@ -33,7 +40,7 @@ Route::get('/catagoryDelete/{cat_id}', [catagoryController::class , 'catagoryDel
 Route::get('/catagoryEdit/{cat_id}', [catagoryController::class , 'catagoryEdit'])->name('catagoryEdit');
 Route::post('EditCatagory', [catagoryController::class, 'EditCatagory'])->name('EditCatagory');
 
-// sub_classess route   addQuestion s
+// sub_classess route   
 
 Route::get('show_sub', [subController::class, 'show'])->name('show_sub');
 Route::get('add_sub', [subController::class, 'add'])->name('add_sub');
@@ -41,8 +48,13 @@ Route::post('addSubject', [subController::class, 'addSubject'])->name('addSubjec
 Route::get('/subjectDelete/{sub_classesses_id}', [subController::class , 'subjectDelete'])->name('subjectDelete');
 Route::get('/subjectEdit/{sub_classesses_id}', [subController::class , 'subjectEdit'])->name('subjectEdit');
 Route::post('EditSubject', [subController::class, 'EditSubject'])->name('EditSubject');
+Route::get('subjectActivate/{sub_classesses_id}', [subController::class, 'activateSubject'])->name('activate_sub');
+Route::get('show_questions/{sub_classesses_id}', [subController::class, 'show_questions'])->name('show_questions');
+
+Route::get('subjectDeactivate/{sub_classesses_id}', [subController::class, 'deactivateSubject'])->name('deactivate_sub');
 
 // question routes
+
 Route::get('show_question', [questionController::class, 'show'])->name('show_question');
 Route::get('add_question', [questionController::class, 'add'])->name('add_question');
 Route::post('addQuestion', [questionController::class, 'addQuestion'])->name('addQuestion');

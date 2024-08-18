@@ -9,11 +9,21 @@ use App\Models\subject;
 class questionController extends Controller
 {
    
-    public function show(){   
-        $question = question::leftjoin('sub_classesses', 'sub_classesses.sub_classesses_id' , 'questions.sub_classesses_id')
-        ->select('questions.*', 'sub_classesses.sub_name as name')->get(); 
-        return view('admin.question.show_question', compact('question'));
+    public function show(Request $request)
+{   
+    $query = $request->input('query');
+
+    $questions = Question::leftJoin('sub_classesses', 'sub_classesses.sub_classesses_id', 'questions.sub_classesses_id')
+        ->select('questions.*', 'sub_classesses.sub_name as name');
+
+    if ($query) {
+        $questions->where('questions.question', 'like', '%' . $query . '%');
     }
+
+    $questions = $questions->paginate(5);
+
+    return view('admin.question.show_question', compact('questions'));
+}
     public function add(){  
         $subject = subject::all();
         return view('admin.question.add_question' ,compact('subject'));
@@ -39,7 +49,7 @@ class questionController extends Controller
         
         $questions->save();
         // dd('hello');
-        return redirect()->route('show_question');
+        return redirect()->route('show_question')->with('status' , 'Question Added Successfully!!');
     }
 
     public function questionDelete($question_id){
@@ -79,7 +89,7 @@ public function EditQuestion(Request $request){
 
     $questions->save(); 
     
-    return redirect()->route('show_question');    
+    return redirect()->route('show_question')->with('status' , 'Question Edited Successfully!!');    
 
   }
 

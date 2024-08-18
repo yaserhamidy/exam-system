@@ -12,3 +12,4 @@ class catagory extends Model
     protected $primaryKey = 'cat_id';
     
 }
+

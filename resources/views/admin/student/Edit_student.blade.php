@@ -25,10 +25,10 @@
                         <input value="{{$student->email}}"  type="email" name="email"  class="form-control">
                     </div>
 				</div>
-                <div class="col-md-12">
+                {{-- <div class="col-md-12">
                     <label for="">رمز عبور </label>
                     <input value="{{$student->password}}"  type="password" name="password" class="form-control">
-                </div>
+                </div> --}}
                 
                 <div class="col-md-2">
 			   <input type="submit" class="btn btn-primary" value='اضافه کردن'  style="margin:20px;">

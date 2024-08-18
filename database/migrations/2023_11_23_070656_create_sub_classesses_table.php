@@ -14,19 +14,17 @@ class CreateSubClassessesTable extends Migration
     public function up()
     {
         Schema::create('sub_classesses', function (Blueprint $table) {
-            $table->bigIncrements('sub_classesses_id')->id()->unsigned();
-                
+            $table->bigIncrements('sub_classesses_id');
             $table->unsignedBigInteger('cat_id')->nullable();
             $table->foreign('cat_id')->references('cat_id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-
-            $table->string('sub_name' , 64);
-            $table->string('status' , 64);
+            $table->string('sub_name', 64);
+            $table->string('status')->nullable();
             $table->integer('timer');
             $table->integer('question_count')->nullable();
             $table->integer('total_score');
-            
             $table->timestamps();
         });
+        
     }
 
     /**

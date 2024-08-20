@@ -28,7 +28,8 @@ class homecontroller extends Controller
         $subClass = subject::findOrFail($sub_classesses_id);
         $questions = question::where('sub_classesses_id', $sub_classesses_id)->get();
         $timer = $subClass->timer;
-        return view('exam_pages', compact('questions', 'timer'));
+    
+        return view('exam_page', compact('questions', 'timer', 'subClass')); // Pass the $subClass variable to the view
     }
     
 }

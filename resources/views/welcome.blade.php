@@ -21,7 +21,7 @@
                         <h4 class="card-title">{{ $post->sub_name }} Exam</h4>
                         <p class="card-text">Time: {{ $post->timer }}</p>
                         <p class="card-text">Score: {{ $post->total_score }}</p>
-                        <a href="exam_page" class="btn">View Exam</a>
+                        <a href="{{ route('exam_page', ['sub_classesses_id' => $post->sub_classesses_id]) }}" class="btn">View Exam</a>
                     </div>
                 </div>
             </div>

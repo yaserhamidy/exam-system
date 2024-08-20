@@ -24,10 +24,8 @@ use App\Http\Controllers\SearchController;
 */
 
 Route::get('/', [homecontroller::class, 'show'])->name('welcome');
-Route::get('exam_page', [homecontroller::class, 'exam_page'])->name('exam_page');
+Route::get('exam_page/{sub_classesses_id}', [homecontroller::class, 'exam_page'])->name('exam_page');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-
-
 // result routes
 Route::get('show_result', [resultController::class, 'show'])->name('show_result');
 

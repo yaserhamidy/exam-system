@@ -10,4 +10,14 @@ class result extends Model
     use HasFactory;
     protected $table = ("results");
     protected $primaryKey = 'results_id';
+    
+    public function student()
+{
+    return $this->belongsTo(User::class, 'id');
+}
+
+public function exam()
+{
+    return $this->belongsTo(subject::class, 'exam_id');
+}
 }

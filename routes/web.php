@@ -22,13 +22,16 @@ use App\Http\Controllers\SearchController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [homecontroller::class, 'show'])->name('welcome');
+Route::get('/', [HomeController::class, 'firstPage'])->name('firstPage');
+Route::get('/welcome', [HomeController::class, 'showExamPage'])->name('welcome');
 Route::get('exam_page/{sub_classesses_id}', [homecontroller::class, 'exam_page'])->name('exam_page');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::post('/submit-test', [homecontroller::class, 'submitTest'])->name('submit-test');
 // result routes
 Route::get('show_result', [resultController::class, 'show'])->name('show_result');
+Route::post('/results', 'App\Http\Controllers\resultController@storeResult')->name('results.store');
 
+
+// Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // category routes
 Route::get('show_catagory', [catagoryController::class, 'show'])->name('show_catagory');

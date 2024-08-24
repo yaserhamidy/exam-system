@@ -61,7 +61,7 @@
         <span id="minutes">{{ $timer }}</span>:<span id="seconds">00</span>
     </div>
 
-    <form method="post" action="">
+    <form method="post" action="{{ route('submit-test') }}">
         @csrf
         <?php
         $counter = 0;
@@ -70,10 +70,10 @@
         <h2>Question {{ ++$counter }}:</h2>
         <input type="hidden" name="question_id[]" value="{{ $question->question_id }}">
         <p>{{ $question->question }}</p>
-        <input type="radio" name="answer_{{ $question->question_id }}" value="a">{{ $question->answerone }}<br>
-        <input type="radio" name="answer_{{ $question->question_id }}" value="b">{{ $question->answertow }}<br>
-        <input type="radio" name="answer_{{ $question->question_id }}" value="c">{{ $question->answerthree }}<br>
-        <input type="radio" name="answer_{{ $question->question_id }}" value="d">{{ $question->answerfour }}<br>
+        <input type="radio" name="answer_{{ $question->question_id }}" value="1">{{ $question->answerone }}<br>
+        <input type="radio" name="answer_{{ $question->question_id }}" value="2">{{ $question->answertow }}<br>
+        <input type="radio" name="answer_{{ $question->question_id }}" value="3">{{ $question->answerthree }}<br>
+        <input type="radio" name="answer_{{ $question->question_id }}" value="4">{{ $question->answerfour }}<br>
         @endforeach
         <button type="submit">Submit</button>
     </form>

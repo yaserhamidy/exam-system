@@ -7,7 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class awnser extends Model
 {
-    use HasFactory;
-    protected $table = ("answers");
+   
+    protected $table = 'answers';
     protected $primaryKey = 'answer_id';
+
+    protected $fillable = [
+        'question_id',
+        // 'id',
+        'choiceanswer',
+        'correctanswer',
+        'statusanswer',
+        'statusexam',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
+
+    public function question()
+    {
+        return $this->belongsTo(question::class, 'question_id');
+    }
 }

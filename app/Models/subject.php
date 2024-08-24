@@ -11,6 +11,9 @@ class subject extends Model
     protected $table = ("sub_classesses");
     protected $primaryKey = 'sub_classesses_id';
 
-
+    public function results()
+    {
+        return $this->hasMany(result::class, 'exam_id');
+    }
     
 }
